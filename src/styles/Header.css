@@ -1,0 +1,15 @@
+/* Header.css */
+header {
+    background-color: #D8D5CC;
+  }
+
+.logo-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 3%;
+}
+  
+.logo{
+    max-width: 70px;
+}
+ 
