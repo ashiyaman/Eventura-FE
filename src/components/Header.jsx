@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import logo from "../assets/Eventura_Logo.png";
 import { FaFilter } from "react-icons/fa6";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 
@@ -17,8 +16,8 @@ const toggleFilter = () => {
   return (
     <header>
       <div className="container py-2" style={{backgroundColor: '#d4d2cc'}}>
-        <div className="p-3 d-flex justify-content-between align-items-center">
-            <img src={logo} alt="Eventura Logo" className="img-fluid rounded-circle shadow" style={{maxWidth: '80px'}}/>
+        <div className="p-3 d-flex justify-content-between align-items-center" style={{color: '#2e4042'}}>
+            <img src="/Eventura_Logo.png" alt="Eventura Logo" className="img-fluid rounded-circle shadow" style={{maxWidth: '80px'}}/>
             <div className="d-flex align-items-center position-relative">
                 <button className="border-0 bg-transparent p-2" onClick={toggleFilter}>
                     <FaFilter className="fs-5" />
