@@ -2,16 +2,15 @@ import React, { useState } from "react";
 import { FaFilter } from "react-icons/fa6";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 
-const searchHandler = () => {
-  console.log("...in search");
-};
+import useFetch from "../../useFetch";
+import EventList from "./EventList";
 
-const Header = () => {
-    const [showFilter, setShowFilter] = useState(false)
+const Header = ({filterEventTypeHandler, searchHandler}) => {
+  const [showFilter, setShowFilter] = useState(false)
 
-const toggleFilter = () => {
-    setShowFilter(!showFilter)
-}
+  const toggleFilter = () => {
+      setShowFilter(!showFilter)
+  }
 
   return (
     <header>
@@ -23,7 +22,7 @@ const toggleFilter = () => {
                     <FaFilter className="fs-5" />
                 </button>
                 {showFilter && (
-                <select className="position-absolute mt-2 w-auto border rounded shadow bg-white p-1">
+                <select onChange={(e) => filterEventTypeHandler(e.target.value)} className="position-absolute mt-2 w-auto border rounded shadow bg-white p-1">
                     <option>Event Type</option>
                     <option value="Online">Online</option>
                     <option value="Offline">Offline</option>
@@ -32,7 +31,7 @@ const toggleFilter = () => {
                 )}
             </div>            
         </div>
-        <div className="container d-flex input-group" onClick={searchHandler}>
+        <div className="container d-flex input-group" onClick={(e) => searchHandler}>
             <span className="border-right-0 input-group-text">
                 <FaMagnifyingGlass />
             </span>
