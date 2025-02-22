@@ -1,4 +1,18 @@
-const EventList = ({events, loading}) => {
+import useFetch from "../../useFetch"
+
+const EventList = ({eventType, searchTerm}) => {
+    const {data, loading} = useFetch('https://eventura-be.vercel.app/events') 
+    const events = data && searchTerm ?
+            data.filter(eventData => {
+                 return (
+                    eventData.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    eventData.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase())))
+            }) : 
+            (eventType !== "Both" ? 
+                data.filter(eventData => eventData.eventType === eventType) :
+                data
+             )
+                
     return(
         <div className="container"> 
             {loading && (<p>Loading...</p>)}

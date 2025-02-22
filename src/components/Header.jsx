@@ -31,11 +31,11 @@ const Header = ({filterEventTypeHandler, searchHandler}) => {
                 )}
             </div>            
         </div>
-        <div className="container d-flex input-group" onClick={(e) => searchHandler}>
+        <div className="container d-flex input-group" >
             <span className="border-right-0 input-group-text">
                 <FaMagnifyingGlass />
             </span>
-            <input type="text" placeholder="Search by title and tags" className="form-control border-left-0 input-group-text"/>
+            <input type="text" placeholder="Search by title and tags" onChange={(e) => searchHandler(e.target.value)} className="form-control border-left-0 input-group-text"/>
         </div>
       </div>
     </header>
