@@ -1,43 +1,45 @@
-import React, { useState } from "react";
-import { FaFilter } from "react-icons/fa6";
-import { FaMagnifyingGlass } from "react-icons/fa6";
+import React from "react";
+import { FaSearch } from "react-icons/fa";
 
-import useFetch from "../../useFetch";
-import EventList from "./EventList";
-
-const Header = ({filterEventTypeHandler, searchHandler}) => {
-  const [showFilter, setShowFilter] = useState(false)
-
-  const toggleFilter = () => {
-      setShowFilter(!showFilter)
-  }
-
+const Header = ({ searchHandler }) => {
   return (
-    <header>
-      <div className="container py-2" style={{backgroundColor: '#d4d2cc'}}>
-        <div className="p-3 d-flex justify-content-between align-items-center" style={{color: '#2e4042'}}>
-            <img src="/Eventura_Logo.png" alt="Eventura Logo" className="img-fluid rounded-circle shadow" style={{maxWidth: '80px'}}/>
-            <div className="d-flex align-items-center position-relative">
-                <button className="border-0 bg-transparent p-2" onClick={toggleFilter}>
-                    <FaFilter className="fs-5" />
-                </button>
-                {showFilter && (
-                <select onChange={(e) => filterEventTypeHandler(e.target.value)} className="position-absolute mt-2 w-auto border rounded shadow bg-white p-1">
-                    <option>Event Type</option>
-                    <option value="Online">Online</option>
-                    <option value="Offline">Offline</option>
-                    <option value="Both">Both</option>
-                </select>
-                )}
-            </div>            
+    <header className="container py-2">
+      <div
+        className="d-flex align-items-center justify-content-between"
+      >
+        {/* Logo */}
+        <div className="d-flex align-items-center">
+          <img
+            src="/logo.png"
+            alt="Eventura Logo"
+            className="img-fluid rounded-circle border border-2 shadow-lg"
+            style={{
+              maxWidth: "70px",
+              backgroundColor: "#5B4B8A", 
+              borderColor: "#00C2CB", 
+              padding: "5px",
+            }}
+          />
         </div>
-        <div className="container d-flex input-group" >
-            <span className="border-right-0 input-group-text">
-                <FaMagnifyingGlass />
-            </span>
-            <input type="text" placeholder="Search by title and tags" onChange={(e) => searchHandler(e.target.value)} className="form-control border-left-0 input-group-text"/>
+
+        {/* Search Bar */}
+        <div className="input-group shawow-lg" style={{ maxWidth: "65%" }}>
+          <span
+            className="input-group-text border-0 text-white"
+            style={{ backgroundColor: "#00C2CB" }} 
+          >
+            <FaSearch />
+          </span>
+          <input
+            type="text"
+            className="form-control shadow-lg"
+            style={{color: "#2D2D2D"}}
+            placeholder="Search Events by Title or Tags"
+            onChange={(e) => searchHandler(e.target.value)}
+          />
         </div>
       </div>
+      <hr/>
     </header>
   );
 };
