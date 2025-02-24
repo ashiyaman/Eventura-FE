@@ -79,12 +79,12 @@ const EventDetails = ({ searchHandler }) => {
                                     const speaker = users?.find(user => user._id == presenter)
                                     return (
                                         <div className="card p-2 my-2 d-flex align-items-center text-center shadow-sm" key={presenter._id}>
-                                            <img 
+                                            {speaker.profileImg && <img 
                                                 src={speaker.profileImg}
                                                 alt={speaker.name} 
                                                 className="img-fluid rounded-circle border border-2 shadow-lg" 
                                                 style={{ width: "80px", height: "80px", objectFit: "cover" }} 
-                                            />
+                                            />}
                                             <h5 className="mt-2">{speaker.name}</h5>
                                             <p className="text-muted">{speaker.designation}</p>
                                         </div>                                   
