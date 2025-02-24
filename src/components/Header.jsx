@@ -7,7 +7,6 @@ const Header = ({ searchHandler }) => {
       <div
         className="d-flex align-items-center justify-content-between"
       >
-        {/* Logo */}
         <div className="d-flex align-items-center">
           <img
             src="/logo.png"
@@ -22,7 +21,6 @@ const Header = ({ searchHandler }) => {
           />
         </div>
 
-        {/* Search Bar */}
         <div className="input-group shawow-lg" style={{ maxWidth: "65%" }}>
           <span
             className="input-group-text border-0 text-white"

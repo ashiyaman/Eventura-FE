@@ -3,6 +3,22 @@ import useFetch from "../../useFetch";
 const EventList = ({ eventType, searchTerm }) => {
     const { data, loading } = useFetch("https://eventura-be.vercel.app/events");
 
+    const formatDate = (dateStr) => {
+        const date = new Date(dateStr)
+        const options = ({
+            weekday: "short",  
+            year: "numeric",   
+            month: "short",    
+            day: "2-digit",    
+            hour: "2-digit",   
+            minute: "2-digit", 
+            second: "2-digit", 
+            hour12: true,      
+            timeZoneName: "short",
+        })
+        return date.toLocaleDateString("en-IN", options)
+    }
+
     const events =
         data && searchTerm
             ? data.filter((eventData) => {
@@ -32,7 +48,7 @@ const EventList = ({ eventType, searchTerm }) => {
                                     style={{ height: "180px"}}
                                 />
                                 <div className="card-body text-white rounded-bottom" style={{ backgroundColor: "#5B4B8A"}}>
-                                    <div className="fw-light fs-6">{event.date}</div>
+                                    <div className="fw-light fs-6">{formatDate(event.date)}</div>
                                     <h5 className="card-title">{event.title}</h5>
                                 </div>
                             </div>
