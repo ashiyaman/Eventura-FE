@@ -55,7 +55,7 @@ const EventDetails = ({ searchHandler }) => {
                                 ))}
                             </div>
                         </section>
-                        <section className="col-md-4">
+                        <section className="col-md-4 ps-4">
                             <section className="rounded my-2 p-3 border text-white" style={{ backgroundColor: "#00C2CB" }}>
                                 <div className="my-2 d-flex align-items-center fs-6">
                                     <p><FaCalendarAlt className="me-2" /></p>
@@ -67,30 +67,37 @@ const EventDetails = ({ searchHandler }) => {
                                 <div className="my-2 d-flex align-items-center">
                                     <p><FaMapMarkerAlt className="me-2" /></p>
                                     <div>
-                                        <p className="mb-0"> {eventData.venue.city}</p>
-                                        <p>{eventData.venue.name}, {eventData.venue.address}</p>
+                                        {eventData.eventType === "Offline" ? 
+                                            (<>
+                                                <p className="mb-0"> {eventData.venue.city}</p>
+                                                <p>{eventData.venue.name}, {eventData.venue.address}</p>
+                                            </>
+                                            ) :
+                                            (<p>{eventData.venue.name}</p>)
+                                        }
                                     </div>
                                 </div>
-                                <p className="fw-bold">₹ {eventData.price}</p>
+                                <p className="fw-bold">₹ {eventData.isPaid ? `${eventData.price}` : `Free`}</p>
                             </section>
                             <section className="my-4">
-                                <h3>Speakers: ({eventData.presenters.length})</h3>
+                                <h4>Speakers: ({eventData.presenters.length})</h4>
                                 {eventData?.presenters?.map(presenter => {
                                     const speaker = users?.find(user => user._id == presenter)
                                     return (
                                         <div className="card p-2 my-2 d-flex align-items-center text-center shadow-sm" key={presenter._id}>
-                                            {speaker.profileImg && <img 
-                                                src={speaker.profileImg}
+                                            {speaker?.profileImg && <img 
+                                                src={`../../${speaker.profileImg}`}
                                                 alt={speaker.name} 
                                                 className="img-fluid rounded-circle border border-2 shadow-lg" 
                                                 style={{ width: "80px", height: "80px", objectFit: "cover" }} 
                                             />}
                                             <h5 className="mt-2">{speaker.name}</h5>
                                             <p className="text-muted">{speaker.designation}</p>
-                                        </div>                                   
-                                )})}
+                                        </div>  
+                                    )
+                                })}
                             </section>
-                            <button className="btn text-white fw-bold align-items-center" style={{ backgroundColor: "#00C2CB" }}>RSVP</button>
+                            <button className="btn text-white fw-bold align-self-center" style={{ backgroundColor: "#00C2CB" }}>RSVP</button>
                         </section>
                     </div>
                 )}
