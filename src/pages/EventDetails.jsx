@@ -36,12 +36,12 @@ const EventDetails = ({ searchHandler }) => {
             <Header searchHandler={searchHandler} />
             <div className="container my-4" style={{ color: "#5B4B8A" }}>
                 {loading && <p>Loading...</p>}
-                {eventData && (
+                {!loading && eventData && (
                     <div className="row">
                         <section className="col-md-8 pe-8">
                             <h3 className="fw-semibold my-2">{eventData.title}</h3>
-                            <p>Hosted By:</p>
-                            <h4 className="mb-4" style={{ color: "#00C2CB" }}>{eventData.presenters.map(host => host.name).join(", ")}</h4>
+                            <p className="mb-0 mt-2">Hosted By: </p>
+                            <p className="fw-semibold" style={{ color: "#00C2CB" }}>{eventData.host}</p>
                             <img src={eventData.images[0]} style={{ maxWidth: "80%" }} className="img-fluid rounded" alt="Event" />
                             <h4 className="fw-semibold my-4">Details:</h4>
                             <p>{eventData.description}</p>
@@ -90,7 +90,7 @@ const EventDetails = ({ searchHandler }) => {
                                         </div>                                   
                                 )})}
                             </section>
-                            <button className="btn text-white fw-bold text-center" style={{ backgroundColor: "#00C2CB" }}>RSVP</button>
+                            <button className="btn text-white fw-bold align-items-center" style={{ backgroundColor: "#00C2CB" }}>RSVP</button>
                         </section>
                     </div>
                 )}
