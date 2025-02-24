@@ -4,9 +4,9 @@ import { FaFilter } from "react-icons/fa6";
 import Header from "../components/Header";
 import EventList from "../components/EventList";
 
-const EventListing = () => {
+const EventListing = ({searchHandler, searchTerm}) => {
     const [eventType, setEventType] = useState("Both");
-    const [searchTerm, setSearchTerm] = useState("");
+    
     const [showFilter, setShowFilter] = useState(false);
 
     const toggleFilter = () => {
@@ -17,9 +17,7 @@ const EventListing = () => {
         setEventType(type);
     };
 
-    const searchHandler = (value) => {
-        setSearchTerm(value);
-    };
+    
 
     return (
         <div>
@@ -36,7 +34,7 @@ const EventListing = () => {
                     </button>}
                 
                 {showFilter && (
-                    <div className="position-absolute" style={{right: "5%", maxWidth: "50%"}}>
+                    <div className="position-absolute" style={{right: "7%", maxWidth: "50%"}}>
                         <select
                             onChange={(e) => filterEventTypeHandler(e.target.value)}
                             className="form-select fw-semibold border shadow-lg text-white"

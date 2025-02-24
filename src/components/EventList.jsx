@@ -1,4 +1,5 @@
 import useFetch from "../../useFetch";
+import {Link} from "react-router-dom"
 
 const EventList = ({ eventType, searchTerm }) => {
     const { data, loading } = useFetch("https://eventura-be.vercel.app/events");
@@ -38,19 +39,23 @@ const EventList = ({ eventType, searchTerm }) => {
                 <div className="row">
                     {events.map((event, index) => (
                         <div key={index} className="col-md-4 my-2">
-                            <div className="card border shadow-lg" 
+                            <div className="card border shadow-lg cursor-pointer" 
                                 style={{ backgroundColor: "#EEE5FF", 
-                                    boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.15)"}}>
-                                <img
-                                    src={event.images[0]}
-                                    alt={event.title}
-                                    className="card-img-top img-fluid"
-                                    style={{ height: "180px"}}
-                                />
-                                <div className="card-body text-white rounded-bottom" style={{ backgroundColor: "#5B4B8A"}}>
-                                    <div className="fw-light fs-6">{formatDate(event.date)}</div>
-                                    <h5 className="card-title">{event.title}</h5>
-                                </div>
+                                    boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.15)"}}
+                                >
+                                <Link to={`/details/${event._id}`}>
+                                    <img
+                                        src={event.images[0]}
+                                        alt={event.title}
+                                        className="card-img-top img-fluid"
+                                        style={{ height: "180px"}}
+                                    />
+                                    <div className="card-body text-white rounded-bottom" style={{ backgroundColor: "#5B4B8A"}}>
+                                        <div className="fw-light fs-6">{formatDate(event.date)}</div>
+                                        <h5 className="card-title">{event.title}</h5>
+                                    </div>
+                                </Link>
+                                
                             </div>
                         </div>
                     ))}
