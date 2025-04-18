@@ -6,7 +6,7 @@ import { FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
 const EventDetails = ({ searchHandler }) => {
     const { data, loading } = useFetch("https://eventura-be.vercel.app/events");
 
-    const {data: users, loading: userLoading} = useFetch("https://eventura-be.vercel.app/users");
+    const {data: speakers, loading: speakerLoading} = useFetch("https://eventura-be.vercel.app/speakers");
     const { eventId } = useParams();
     const eventData = data?.find(event => event._id === eventId);
 
@@ -70,19 +70,19 @@ const EventDetails = ({ searchHandler }) => {
                                         {eventData.eventType === "Offline" ? 
                                             (<>
                                                 <p className="mb-0"> {eventData.venue.city}</p>
-                                                <p>{eventData.venue.name}, {eventData.venue.address}</p>
+                                                <p>{eventData.venue?.name}, {eventData.venue.address}</p>
                                             </>
                                             ) :
-                                            (<p>{eventData.venue.name}</p>)
+                                            (<p>{eventData.venue?.name}</p>)
                                         }
                                     </div>
                                 </div>
                                 <p className="fw-bold">₹ {eventData.isPaid ? `${eventData.price}` : `Free`}</p>
                             </section>
                             <section className="my-4">
-                                <h4>Speakers: ({eventData.presenters.length})</h4>
+                                <h4>Speaker{eventData.presenters.length > 1 ? 's' : ''} : ({eventData.presenters.length})</h4>
                                 {eventData?.presenters?.map(presenter => {
-                                    const speaker = users?.find(user => user._id == presenter)
+                                    const speaker = speakers?.find(speaker => speaker._id == presenter)
                                     return (
                                         <div className="card p-2 my-2 d-flex align-items-center text-center shadow-sm" key={presenter._id}>
                                             {speaker?.profileImg && <img 
@@ -91,13 +91,13 @@ const EventDetails = ({ searchHandler }) => {
                                                 className="img-fluid rounded-circle border border-2 shadow-lg" 
                                                 style={{ width: "80px", height: "80px", objectFit: "cover" }} 
                                             />}
-                                            <h5 className="mt-2">{speaker.name}</h5>
-                                            <p className="text-muted">{speaker.designation}</p>
+                                            <h5 className="mt-2">{speaker?.name}</h5>
+                                            <p className="text-muted">{speaker?.designation}</p>
                                         </div>  
                                     )
                                 })}
                             </section>
-                            <button className="btn text-white fw-bold align-self-center" style={{ backgroundColor: "#00C2CB" }}>RSVP</button>
+                            <button className="btn text-white fw-bold mx-auto" style={{ backgroundColor: "#00C2CB" }}>RSVP</button>
                         </section>
                     </div>
                 )}
