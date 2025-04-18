@@ -42,7 +42,7 @@ const EventList = ({ eventType, searchTerm }) => {
                     {events.map((event, index) => (
                         <div key={index} className="col-md-4 my-2">
                             <div
-                                className="card border shadow-lg cursor-pointer"
+                                className="card border shadow-lg cursor-pointer position-relative"
                                 style={{
                                     backgroundColor: "#EEE5FF",
                                     boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.15)",
@@ -55,6 +55,8 @@ const EventList = ({ eventType, searchTerm }) => {
                                         className="card-img-top img-fluid"
                                         style={{ height: "180px", objectFit: "cover" }}
                                     />
+                                    <span className="badge position-absolute m-2 end-0 p-2"
+                                        style={{ backgroundColor: "#00C2CB" }} >{event.eventType}</span>
                                     <div
                                         className="card-body text-white rounded-bottom"
                                         style={{ backgroundColor: "#5B4B8A" }}
