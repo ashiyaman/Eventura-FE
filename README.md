@@ -1,14 +1,6 @@
 # Eventura: Discover and Share Events
 
-**Eventura** is an intuitive event listing app that allows users to discover, explore, and share local events based on their interests. From concerts to meetups, Eventura makes it easy to stay informed about what's happening around you and be part of exciting experiences.
-
-## Features
-
-- **Event Discovery**: Easily find events near you based on location, category, and personal interests.
-- **Event Creation**: Users can create and share their own events, inviting friends or the public to join.
-- **Interactive Calendar**: View upcoming events in a simple and user-friendly calendar format.
-- **Personalized Recommendations**: Get event suggestions tailored to your preferences and past interactions.
-- **Event Reminders**: Set notifications to remind you of your upcoming events.
+**Eventura** is an intuitive event listing app that allows users to discover, explore, and share events based on their interests. From concerts to meetups, Eventura makes it easy to stay informed about what's happening around you and be part of exciting experiences.
 
 ## Technologies Used
 
@@ -47,13 +39,6 @@ npm start
 
 Now you can access the app in your browser at http://localhost:3000 or the appropriate port.
 
-### Usage
-
-1. Event Discovery: On the homepage, browse events based on your location, interests, and categories.
-2. Create Event: Click on the “Create Event” button to list your own events. Fill out the form with event details like time, description, and location.
-3. Event Calendar: View all upcoming events in a simple, interactive calendar view.
-4. Personalized Feed: Based on your preferences, you'll receive personalized event recommendations on your dashboard.
-5. Reminders: Don't miss out on your favorite events by setting up reminders and notifications.
 
 ### Contributing
 
