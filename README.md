@@ -1,4 +1,4 @@
-# Eventura: Discover and Share Events
+# Eventura: Discover Events
 
 **Eventura** is an intuitive event listing app that allows users to discover, explore, and share events based on their interests. From concerts to meetups, Eventura makes it easy to stay informed about what's happening around you and be part of exciting experiences.
 
