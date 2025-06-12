@@ -1,63 +1,137 @@
-# Eventura: Discover Events
 
-**Eventura** is an intuitive event listing app that allows users to discover, explore, and share events based on their interests. From concerts to meetups, Eventura makes it easy to stay informed about what's happening around you and be part of exciting experiences.
+# 🎉 Eventura: Discover and Share Events
 
-## Technologies Used
+**Eventura** is an intuitive event listing app that allows users to discover, explore, and share local events based on their interests. From concerts to meetups, Eventura makes it easy to stay informed about what's happening around you and be part of exciting experiences.
 
-- **Frontend**: React.js 
-- **Backend**: Node.js, Express 
-- **Database**: MongoDB 
+** Demo: ** [https://dish-deck-fe.vercel.app/](https://dish-deck-fe.vercel.app/)
 
-## Installation
+---
 
-To get started with Eventura, follow these steps:
+## ✨ Features
 
-### Clone the repository:
+- **Event Discovery**: Easily find events near you based on location, category, and personal interests.
+- **Event Creation**: Users can create and share their own events, inviting friends or the public to join.
+- **Interactive Calendar**: View upcoming events in a simple and user-friendly calendar format.
+- **Personalized Recommendations**: Get event suggestions tailored to your preferences and past interactions.
+- **Event Reminders**: Set notifications to remind you of your upcoming events.
 
-```
+---
+
+## 🛠 Technologies Used
+
+- **Frontend**: React.js
+- **Backend**: Node.js, Express
+- **Database**: MongoDB
+
+---
+
+## 📦 Installation
+
+### Clone the repository
+
+```bash
 git clone https://github.com/your-username/eventura.git
 ```
 
-### Install dependencies:
+### Install dependencies
 
-Navigate to the project folder and install the necessary dependencies:
-
-```
-cd eventura 
-npm install  
+```bash
+cd eventura
+npm install
 ```
 
-### Set up the environment variables:
+### Set up the environment variables
 
-Make sure to configure your environment variables. Create a .env file with the necessary configuration, such as database URLs, API keys, etc.
+Create a `.env` file in the root directory and include:
 
-### Start the development server:
-
+```env
+PORT=5000
+MONGO_URL=<your-mongodb-connection-string>
 ```
-npm start 
+
+### Start the development server
+
+```bash
+npm start
 ```
 
-Now you can access the app in your browser at http://localhost:3000 or the appropriate port.
+Visit: `http://localhost:3000`
 
+---
 
-### Contributing
+## 🚀 Usage
 
-We welcome contributions to improve Eventura! Here’s how you can contribute:
+1. **Event Discovery**: Browse events on the homepage based on location and category.
+2. **Create Event**: Use the “Create Event” form to list your own events.
+3. **Calendar**: Check all events in an interactive calendar view.
+4. **Personalized Feed**: Dashboard shows recommendations based on your preferences.
+5. **Reminders**: Set notifications to avoid missing important events.
 
-### Fork the repository.
+---
 
-1. Create a new branch (git checkout -b feature/your-feature).
-2. Make your changes.
-3. Commit your changes (git commit -am 'Add new feature').
-4. Push to your branch (git push origin feature/your-feature).
-5. Open a pull request.
-6. Please make sure to follow the existing code style and write tests for your contributions.
+## 📘 API Endpoints
 
-### License
+### 🔹 Root
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+#### GET `/`
+Returns a welcome message.
 
-### Contact
+**Response:**
+```
+Welcome to Eventura, an events listing App.
+```
 
-For any questions or feedback, feel free to reach out:
-Email: ashiya1005@gmail.com
+---
+
+### 🔹 Events
+
+#### GET `/events`
+Fetch all events.
+
+**Response Example:**
+```json
+[
+  {
+    "_id": "eventId",
+    "title": "Tech Meetup",
+    "date": "2025-06-20T00:00:00.000Z",
+    "venue": {
+      "name": "Grand Hall",
+      "city": "Mumbai"
+    }
+  }
+]
+```
+
+#### GET `/events/type/:eventType`
+Get events by type.
+
+**Example:**
+```
+GET /events/type/Offline
+```
+---
+
+### 🔹 Speakers
+
+#### GET `/speakers`
+Fetch all speakers.
+
+**Response Example:**
+```json
+[
+  {
+    "_id": "speakerId",
+    "name": "Jane Doe",
+    "designation": "Lead Developer",
+    "profileImg": "https://example.com/image.jpg"
+  }
+]
+```
+
+---
+
+## 📬 Contact
+
+For questions or feedback:  
+**Email**: [ashiya1005@gmail.com](mailto:ashiya1005@gmail.com)
